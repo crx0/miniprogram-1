@@ -1,0 +1,96 @@
+.container {
+  padding: 20px;
+}
+
+.view-switch {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.view-switch button {
+  flex: 1;
+  margin: 0 5px;
+  background-color: #007aff;
+  color: white;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.day-view, .week-view {
+  margin-top: 20px;
+}
+
+.timeline {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.timeline-marker {
+  width: 10px;
+  height: 10px;
+  background-color: #007aff;
+  border-radius: 50%;
+  margin-right: 10px;
+  margin-top: 5px;
+}
+
+.timeline-content {
+  flex: 1;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+}
+
+.schedule-title {
+  font-weight: bold;
+  display: block;
+  color: #333;
+}
+
+.schedule-time, .schedule-location {
+  display: block;
+  color: #666;
+}
+
+.week-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+}
+
+.grid-item {
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.grid-item .schedule-title {
+  font-weight: bold;
+  display: block;
+  color: #333;
+}
+
+.grid-item .schedule-time, .grid-item .schedule-location {
+  display: block;
+  color: #666;
+}
+
+button {
+  background-color: #007aff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.day-title {
+  font-weight: bold;
+  display: block;
+  color: #333;
+  margin-bottom: 10px;
+}

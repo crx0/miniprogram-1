@@ -1,0 +1,31 @@
+<view class="container">
+  <view class="view-switch">
+    <button bindtap="switchToDayView">日视图</button>
+    <button bindtap="switchToWeekView">周视图</button>
+  </view>
+  <view wx:if="{{isDayView}}" class="day-view">
+    <view wx:for="{{schedules}}" wx:key="id" class="schedule-item timeline">
+      <view class="timeline-marker"></view>
+      <view class="timeline-content">
+        <text class="schedule-title">{{item.title}}</text>
+        <text class="schedule-time">{{item.startTime}} - {{item.endTime}}</text>
+        <text class="schedule-location">{{item.location}}</text>
+        <button bindtap="deleteSchedule" data-id="{{item.id}}">删除</button>
+      </view>
+    </view>
+  </view>
+  <view wx:else class="week-view">
+    <view class="week-grid">
+      <view wx:for="{{['周一', '周二', '周三', '周四', '周五', '周六', '周日']}}" wx:key="index" class="grid-item">
+        <text class="day-title">{{item}}</text>
+        <view wx:for="{{schedules}}" wx:key="id" class="schedule-item">
+          <text class="schedule-title">{{item.title}}</text>
+          <text class="schedule-time">{{item.startTime}} - {{item.endTime}}</text>
+          <text class="schedule-location">{{item.location}}</text>
+          <button bindtap="viewScheduleDetail" data-id="{{item.id}}">查看详情</button>
+        </view>
+      </view>
+    </view>
+  </view>
+  <button bindtap="addSchedule">添加日程</button>
+</view>

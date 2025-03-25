@@ -1,0 +1,42 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/category/category",
+    "pages/article/article",
+    "pages/user/user",
+    "pages/search/search",
+    "pages/favorite/favorite"
+  ],
+  "window": {
+    "navigationBarTitleText": "雷叔智能",
+    "navigationBarBackgroundColor": "#3D5AFE",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#F5F7FA"
+  },
+  "tabBar": {
+    "color": "#8E8E93",
+    "selectedColor": "#3D5AFE",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/home_selected.png"
+      },
+      {
+        "pagePath": "pages/category/category",
+        "text": "课程",
+        "iconPath": "images/category.png",
+        "selectedIconPath": "images/category_selected.png"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "text": "我的",
+        "iconPath": "images/user.png",
+        "selectedIconPath": "images/user_selected.png"
+      }
+    ]
+  }
+}

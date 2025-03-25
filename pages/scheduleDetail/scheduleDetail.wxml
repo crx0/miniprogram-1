@@ -1,0 +1,29 @@
+<view class="container">
+  <form bindsubmit="saveSchedule">
+    <view class="form-item">
+      <label>标题</label>
+      <input name="title" placeholder="请输入标题" />
+    </view>
+    <view class="form-item">
+      <label>开始时间</label>
+      <picker mode="time" value="{{startTime}}" bindchange="bindStartTimeChange">
+        <input name="startTime" placeholder="请选择开始时间" value="{{startTime}}" disabled />
+      </picker>
+    </view>
+    <view class="form-item">
+      <label>结束时间</label>
+      <picker mode="time" value="{{endTime}}" bindchange="bindEndTimeChange">
+        <input name="endTime" placeholder="请选择结束时间" value="{{endTime}}" disabled />
+      </picker>
+    </view>
+    <view class="form-item">
+      <label>地点</label>
+      <input name="location" placeholder="请输入地点" />
+    </view>
+    <view class="form-item">
+      <label>备注</label>
+      <textarea name="notes" placeholder="请输入备注"></textarea>
+    </view>
+    <button formType="submit" class="save-button">保存</button>
+  </form>
+</view>

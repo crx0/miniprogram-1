@@ -1,0 +1,214 @@
+/**app.wxss**/
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: #f6f6f6;
+  color: #333;
+}
+
+/* 卡片样式 */
+.card {
+  width: 100%;
+  background-color: #fff;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+/* 新闻列表项样式 */
+.news-item {
+  padding: 16px;
+  border-bottom: 1px solid #f0f0f0;
+  display: flex;
+  flex-direction: row;
+}
+
+.news-item:last-child {
+  border-bottom: none;
+}
+
+.news-item-left {
+  flex: 1;
+}
+
+.news-item-right {
+  margin-left: 16px;
+  width: 120px;
+  height: 80px;
+}
+
+.news-item-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+}
+
+.news-item-title {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.news-item-info {
+  font-size: 12px;
+  color: #999;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.news-item-info text {
+  margin-right: 16px;
+}
+
+/* 按钮样式 */
+.btn {
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-size: 14px;
+  border: none;
+  background-color: #3366cc;
+  color: white;
+  text-align: center;
+}
+
+.btn-secondary {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+/* 搜索框样式 */
+.search-box {
+  width: 100%;
+  height: 40px;
+  background-color: #fff;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  box-sizing: border-box;
+  margin: 16px 0;
+}
+
+.search-input {
+  flex: 1;
+  height: 100%;
+  border: none;
+  font-size: 14px;
+}
+
+/* 分类样式 */
+.category-list {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 16px;
+  background-color: #fff;
+}
+
+.category-item {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.category-icon {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 8px;
+}
+
+.category-name {
+  font-size: 12px;
+}
+
+/* 标签样式 */
+.tag {
+  display: inline-block;
+  padding: 2px 8px;
+  font-size: 12px;
+  border-radius: 12px;
+  margin-right: 8px;
+  background-color: #f0f0f0;
+  color: #666;
+}
+
+.tag-primary {
+  background-color: #e6f0ff;
+  color: #3366cc;
+}
+
+/* 用户中心样式 */
+.user-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 24px 16px;
+  background-color: #3366cc;
+  color: white;
+}
+
+.user-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  margin-right: 16px;
+}
+
+.user-name {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.menu-list {
+  background-color: #fff;
+  margin-top: 16px;
+}
+
+.menu-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 16px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.menu-item:last-child {
+  border-bottom: none;
+}
+
+.menu-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 16px;
+}
+
+.menu-text {
+  flex: 1;
+}
+
+.arrow-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.view-switch {
+  margin-bottom: 20px;
+}
+
+.day-view, .week-view {
+  margin-top: 20px;
+}

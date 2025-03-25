@@ -1,0 +1,456 @@
+/* 添加字体图标 */
+@font-face {
+  font-family: 'iconfont';
+  src: url('data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAAYgAAsAAAAACzQAAAXSAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCDSAqJMIdvATYCJAMYCw4ABCAFhG0HaRuTCSMRJnQzT/ZXCeyGOqIMpUoFRTQlscgT3tCGeoFa7AkPj4r43f719rlzn5oiaZJJomkSjZBIhEQjVBZJpVBCIn/C2zTt3gTShpUiVMIcUU5mtp3+MJrCQhR4qVV3tFuMhvqvPcBfACaQUMT6T00BFOeP41X0M7H/281KN1ktDdBmLAEFwj3RD/RG/4OyuC32ZL9xrgHaRHCqXcCpQsQQ76QmDLCnJ9CAUGgcGxrJzSeBCEMsQu/c9DQY4hAZ4RHi0OBXZhQXYIDD5Cz1FMB59/flCxKEA4KagDHqkluHCrR/cO9Lsjv/Ty4SGUBzOgvwq4AGJoAC0a+09oJW4QRNDc15NAuAQRxBLT7c++Lel/y//wej0TDSJhCHjPjHKwgalYgQIP5qI+2XcIIPt73gwx2KDz3/qLsFw/YhLxgOAMwDwj3pNpWgZCRYUq6ulhIckohaWmbE4pzmXG+LxZirVE4sInpkAW9fR0/vIKVXzFJh8hImBvqcf+Q6YVFxWoE9PXIeMmOMWJKXxVlZk0YGptGk05Jpk4cySLZphJG0mXIlFZlQU07DsmncBGOEOXlw9KnL7Pq1c5R+Vm7HJNf16+bJE7CuXzbHdIxev6Zm3M0dxXwwRNE0TY0xGFLGXL9hblkgXLt8juJPNceGk9cunyFUrnVTlNwdE13XruQJt97Mym2f6L66d7rLHZ/kuXr5NOXutlOd9Pykk8zlPbP09jGnVFqeZ7Iutt9KM083Dw70zCCU3V09Yzx1Yp+NJKkp9g6KcqYnZwcSQgUVTBVKuSomZMCvQDHTRcaUEhO9Jt4AeHmEhDHTh8XJYwwlWXFiokRIlDzabCwdnNgxfpHCJ2TQQIl8vVi6hs7r6LnTFQGhlT7+/iVB/iEV3uHBFabQQGlw7v0Lm58IZGZuZf4Wm5kZ/eRDeMqTzMzMVWRYAuGCkOX7JqN9iLRvUpBUakaUpNTxo1NGnRkWlTV5iFE/FDHxw6FpKg1mKDHbFMYJQ6eO7n76oFiemJqY6N2bRCU6SJKdXvl2I3qeOKyAnnZxhbh1RJk/RtqF+g0Kio9h69cDPGxkK+w47FmQlwVqB8c+FutDL28TlnffJ2+/vK9/mZm6cnBsTfCPgezGZqPRuA5LCfLtJQRE05iR/8T6g4bj8BzMECTHZsXsVwmRgYIQoXC/NXcfOzOGmUfkkTDWvxGdQeS+rW87HJq8LaBYy7KGxgalQSlodVpjdTSrZdIFDQNz5rPzbFUZhcbGNFRYoJw0b5DDY15zIg6RkNZ7vJ7qj/iiGWJWvSrgyJiNzxBFvF/2+kBUTPy+RNz/OhP9+LT/r2KvjLJfrxNHX3x/kXN+MnX36MnMrHV2EfsYyUr6UyZdXrQJW2xjZDJGdLi7BHUZEbfvnxCXnVbmn4l+TunXr1PLfDK8kBHKhOwN9g1mh1ZPCEkQ1dQIE4snjBYkiBdGq44WJqgl7RQnzB6+NxzJKhXCQ0VCJiRBQzIa0EgiBlqFx2QEW52wRhCJZmgMSM2+6DsUTAKpHxirY4Cw7y0E694gtO9HVuF/MTn0H2Jx3w6i49I30N01M72zeBFpAFo18K9xtb0Z8ZveYXnVHoV7XkA5v5oDHPpW83IeStZW8RMupRo8U5MQNTpgFrpA0+iEqLATDpNxuNHopovQqMBxPG42xkx3iWJAXRvsJCDMuwfBjFegmfdIVuE/UJrwLziYj2/QWEzFkboJj5dpA0pRwf5/qBrEo1myZfANtZ+LYC/WzD7BiFSYYs7LcOcBF/Alm9hS1wILUaA1nMETnsKuqyGvqx5W9/ZijabqYJICFBWIfXYflOqEPDQLm9XvN0j1yyXA3BXWnJ8gRMQ41njWWeHx2AJGkMBVXXUZW9RVYAIKT42gZXAGT5UR2KrV7w91VYZRz5q6xnDL5RXD7a8QHW2MjGLkKFGjw1Fl/D27B5mxfNkSVKlIRE9f5uF5LzXg5v0NLNrEU6dVn7yIkYSRihwtW+5CmUCPDiwXAQA=') format('woff2');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 28rpx;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin-right: 6rpx;
+  display: inline-block;
+}
+
+.icon-star:before {
+  content: "\e61a";
+  color: #FF9500;
+}
+
+.icon-user:before {
+  content: "\e60a";
+  color: #8E8E93;
+}
+
+.icon-teacher:before {
+  content: "\e602";
+  color: #8E8E93;
+}
+
+/* 动画过渡 */
+.fade-in {
+  animation: fadeIn 0.3s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20rpx);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 容器 */
+.container {
+  height: 100%;
+  background: linear-gradient(180deg, #F5F7FA 0%, #FFFFFF 100%);
+  min-height: 100vh;
+}
+
+/* 分类列表 */
+.category-list {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 24rpx;
+  background: linear-gradient(135deg, #FFFFFF 0%, #F8F9FF 100%);
+  margin-bottom: 24rpx;
+  border-radius: 0 0 24rpx 24rpx;
+  box-shadow: 0 8rpx 24rpx rgba(61, 90, 254, 0.08);
+}
+
+.category-item {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24rpx 0;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.category-item-hover {
+  transform: scale(0.95);
+  opacity: 0.9;
+}
+
+.category-item.active {
+  position: relative;
+}
+
+.category-indicator {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40rpx;
+  height: 6rpx;
+  background: linear-gradient(to right, #3D5AFE, #651FFF);
+  border-radius: 3rpx;
+  animation: scaleIn 0.2s ease-out forwards;
+}
+
+@keyframes scaleIn {
+  from {
+    transform: translateX(-50%) scaleX(0.2);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(-50%) scaleX(1);
+    opacity: 1;
+  }
+}
+
+.category-icon {
+  width: 100rpx;
+  height: 100rpx;
+  margin-bottom: 16rpx;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #E8EFFF 0%, #F0F4FF 100%);
+  padding: 20rpx;
+  box-shadow: 0 8rpx 16rpx rgba(61, 90, 254, 0.12);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.active .category-icon {
+  background: linear-gradient(135deg, #DCE4FF 0%, #E8EFFF 100%);
+  transform: scale(1.08);
+  box-shadow: 0 12rpx 24rpx rgba(61, 90, 254, 0.2);
+}
+
+.category-name {
+  font-size: 26rpx;
+  color: #333333;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+
+.active .category-name {
+  color: #3D5AFE;
+  font-weight: 600;
+  transform: scale(1.05);
+}
+
+/* 分类内容 */
+.category-content {
+  padding: 24rpx;
+}
+
+.section-title {
+  font-size: 34rpx;
+  font-weight: 600;
+  margin-bottom: 24rpx;
+  position: relative;
+  padding-left: 24rpx;
+  color: #333333;
+}
+
+.section-title::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8rpx;
+  height: 34rpx;
+  background-color: #3D5AFE;
+  border-radius: 4rpx;
+}
+
+/* 课程列表 */
+.course-list {
+  margin-top: 16rpx;
+}
+
+.course-item {
+  margin-bottom: 32rpx;
+  background: linear-gradient(135deg, #FFFFFF 0%, #F8F9FF 100%);
+  border-radius: 20rpx;
+  overflow: hidden;
+  box-shadow: 0 12rpx 24rpx rgba(0, 0, 0, 0.06);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.course-item-hover {
+  transform: translateY(-4rpx);
+  box-shadow: 0 16rpx 32rpx rgba(0, 0, 0, 0.08);
+}
+
+.course-item-image {
+  width: 100%;
+  height: 340rpx;
+  transition: all 0.3s;
+}
+
+.course-item-info {
+  padding: 28rpx;
+}
+
+.course-item-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  margin-bottom: 16rpx;
+  line-height: 1.5;
+  color: #333333;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.course-item-summary {
+  font-size: 28rpx;
+  color: #666666;
+  margin-bottom: 24rpx;
+  line-height: 1.6;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.course-item-meta {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 24rpx;
+  font-size: 24rpx;
+  color: #8E8E93;
+}
+
+.course-item-instructor {
+  margin-right: 20rpx;
+  display: flex;
+  align-items: center;
+}
+
+.course-item-rating {
+  color: #FF9500;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+}
+
+.course-item-students {
+  display: flex;
+  align-items: center;
+}
+
+.course-item-price-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 2rpx solid rgba(240, 240, 245, 0.8);
+  padding-top: 20rpx;
+  margin-top: 12rpx;
+}
+
+.price-box {
+  display: flex;
+  align-items: center;
+}
+
+.course-item-price {
+  color: #FF3B30;
+  font-size: 44rpx;
+  font-weight: bold;
+  text-shadow: 0 2rpx 4rpx rgba(255, 59, 48, 0.1);
+}
+
+.course-item-original {
+  color: #8E8E93;
+  font-size: 24rpx;
+  text-decoration: line-through;
+  margin-left: 10rpx;
+}
+
+.course-item-free {
+  color: #34C759;
+  font-size: 36rpx;
+  font-weight: 600;
+}
+
+.course-item-cart {
+  background: linear-gradient(135deg, #3D5AFE 0%, #651FFF 100%);
+  width: 76rpx;
+  height: 76rpx;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  box-shadow: 0 8rpx 16rpx rgba(61, 90, 254, 0.3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cart-btn-hover {
+  transform: scale(0.92);
+  box-shadow: 0 4rpx 8rpx rgba(61, 90, 254, 0.2);
+}
+
+.hot-tag, .free-tag {
+  position: absolute;
+  top: 20rpx;
+  right: 20rpx;
+  padding: 8rpx 20rpx;
+  border-radius: 24rpx;
+  color: white;
+  font-size: 24rpx;
+  font-weight: 600;
+  box-shadow: 0 6rpx 12rpx rgba(0, 0, 0, 0.15);
+  z-index: 10;
+  backdrop-filter: blur(4px);
+}
+
+.hot-tag {
+  background: linear-gradient(135deg, #FF3B30 0%, #FF9500 100%);
+}
+
+.free-tag {
+  background: linear-gradient(135deg, #34C759 0%, #30B7FF 100%);
+}
+
+/* 当同时存在热门和免费标签时，调整免费标签位置 */
+.course-item .hot-tag + .free-tag {
+  right: 96rpx;
+}
+
+/* 空内容提示 */
+.empty-tip, .init-tip {
+  text-align: center;
+  padding: 80rpx 0;
+  color: #8E8E93;
+  font-size: 28rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 600rpx;
+  background: linear-gradient(135deg, #FFFFFF 0%, #F8F9FF 100%);
+  border-radius: 24rpx;
+  margin: 24rpx;
+  box-shadow: 0 8rpx 24rpx rgba(0, 0, 0, 0.06);
+}
+
+.empty-tip::before, .init-tip::before {
+  content: '';
+  width: 160rpx;
+  height: 160rpx;
+  background-color: #F0F0F5;
+  border-radius: 50%;
+  margin-bottom: 24rpx;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none"><path d="M24 4C12.95 4 4 12.95 4 24C4 35.05 12.95 44 24 44C35.05 44 44 35.05 44 24C44 12.95 35.05 4 24 4ZM24 40C15.18 40 8 32.82 8 24C8 15.18 15.18 8 24 8C32.82 8 40 15.18 40 24C40 32.82 32.82 40 24 40ZM24 20C26.21 20 28 18.21 28 16C28 13.79 26.21 12 24 12C21.79 12 20 13.79 20 16C20 18.21 21.79 20 24 20ZM24 24C20 24 16 26 16 28V30H32V28C32 26 28 24 24 24Z" fill="%238E8E93"/></svg>');
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.5;
+}
+
+.empty-action {
+  margin-top: 40rpx;
+  padding: 16rpx 48rpx;
+  background: linear-gradient(135deg, #3D5AFE 0%, #651FFF 100%);
+  color: white;
+  border-radius: 40rpx;
+  font-size: 28rpx;
+  font-weight: 600;
+  box-shadow: 0 8rpx 16rpx rgba(61, 90, 254, 0.3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.button-hover {
+  transform: scale(0.95);
+  box-shadow: 0 4rpx 8rpx rgba(61, 90, 254, 0.2);
+}
+
+.tip-arrow {
+  width: 60rpx;
+  height: 60rpx;
+  border-top: 5rpx solid #8E8E93;
+  border-right: 5rpx solid #8E8E93;
+  transform: rotate(-45deg);
+  margin-top: 40rpx;
+  opacity: 0.5;
+  animation: tipArrow 1.5s ease-in-out infinite;
+}
+
+@keyframes tipArrow {
+  0%, 100% {
+    transform: translateX(0) rotate(-45deg);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateX(-24rpx) rotate(-45deg);
+    opacity: 0.8;
+  }
+}
+
+/* 加载动画 */
+.loading {
+  text-align: center;
+  padding: 40rpx;
+  color: #8E8E93;
+  font-size: 26rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.loading-spinner {
+  width: 60rpx;
+  height: 60rpx;
+  margin-bottom: 20rpx;
+  border: 4rpx solid #F0F0F5;
+  border-top: 4rpx solid #3D5AFE;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-text {
+  font-size: 26rpx;
+  color: #8E8E93;
+  margin-top: 16rpx;
+}
+
+/* 加载完成提示 */
+.no-more {
+  text-align: center;
+  padding: 40rpx;
+  color: #8E8E93;
+  font-size: 26rpx;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.no-more::before,
+.no-more::after {
+  content: '';
+  position: absolute;
+  height: 2rpx;
+  width: 120rpx;
+  background: linear-gradient(to right, transparent, #DDDDDD, transparent);
+}
+
+.no-more::before {
+  left: calc(50% - 200rpx);
+}
+
+.no-more::after {
+  right: calc(50% - 200rpx);
+} 

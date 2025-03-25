@@ -1,0 +1,64 @@
+<view class="container">
+  <!-- 文章标题 -->
+  <view class="article-header">
+    <view class="article-title">{{article.title}}</view>
+    <view class="article-info">
+      <text class="article-author">{{article.author}}</text>
+      <text class="article-time">{{article.publishTime}}</text>
+      <text class="article-category">{{article.categoryName}}</text>
+    </view>
+  </view>
+  
+  <!-- 文章内容 -->
+  <view class="article-content">
+    <rich-text nodes="{{article.content}}"></rich-text>
+  </view>
+  
+  <!-- 阅读量和点赞 -->
+  <view class="article-stats">
+    <view class="stats-item">
+      <icon class="iconfont icon-view"></icon>
+      <text>{{article.viewCount}} 阅读</text>
+    </view>
+    <view class="stats-item">
+      <icon class="iconfont icon-like {{isLiked ? 'active' : ''}}"></icon>
+      <text>{{article.likeCount}} 点赞</text>
+    </view>
+  </view>
+  
+  <!-- 相关推荐 -->
+  <view class="related-news">
+    <view class="section-title">相关推荐</view>
+    <view class="news-list">
+      <view wx:for="{{relatedNews}}" wx:key="id" class="news-item" bindtap="navigateToArticle" data-id="{{item.id}}">
+        <view class="news-item-left">
+          <view class="news-item-title">{{item.title}}</view>
+          <view class="news-item-info">
+            <text>{{item.categoryName}}</text>
+            <text>{{item.publishTime}}</text>
+          </view>
+        </view>
+        <view class="news-item-right">
+          <image src="{{item.coverImage}}" mode="aspectFill" class="news-item-image"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 底部操作栏 -->
+  <view class="action-bar">
+    <view class="action-item" bindtap="toggleLike">
+      <icon class="iconfont icon-like {{isLiked ? 'active' : ''}}"></icon>
+      <text>{{isLiked ? '已点赞' : '点赞'}}</text>
+    </view>
+    <view class="action-item" bindtap="toggleFavorite">
+      <icon class="iconfont icon-star {{isFavorite ? 'active' : ''}}"></icon>
+      <text>{{isFavorite ? '已收藏' : '收藏'}}</text>
+    </view>
+    <view class="action-item" bindtap="shareArticle">
+      <icon class="iconfont icon-share"></icon>
+      <text>分享</text>
+    </view>
+    <button class="share-btn" open-type="share"></button>
+  </view>
+</view> 

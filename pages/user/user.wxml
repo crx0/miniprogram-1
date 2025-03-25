@@ -1,0 +1,106 @@
+<view class="container">
+  <!-- 用户信息 -->
+  <view class="user-info">
+    <block wx:if="{{hasUserInfo}}">
+      <image src="{{userInfo.avatarUrl}}" mode="aspectFill" class="user-avatar"></image>
+      <view class="user-name">{{userInfo.nickName}}</view>
+    </block>
+    <block wx:else>
+      <image src="/images/default-avatar.png" mode="aspectFill" class="user-avatar"></image>
+      <button class="login-btn" bindtap="getUserProfile" hover-class="login-btn-hover">登录/注册</button>
+    </block>
+  </view>
+  
+  <!-- 学习数据统计 -->
+  <view class="study-stats fade-in">
+    <view class="stat-item">
+      <view class="stat-number">{{studyStats.courseCount}}</view>
+      <view class="stat-label">已购课程</view>
+    </view>
+    <view class="stat-divider"></view>
+    <view class="stat-item">
+      <view class="stat-number">{{studyStats.studyTime}}h</view>
+      <view class="stat-label">学习时长</view>
+    </view>
+    <view class="stat-divider"></view>
+    <view class="stat-item">
+      <view class="stat-number">{{studyStats.points}}</view>
+      <view class="stat-label">积分</view>
+    </view>
+  </view>
+  
+  <!-- 订单相关 -->
+  <view class="menu-card fade-in" style="animation-delay: 0.1s">
+    <view class="menu-title">我的订单</view>
+    <view class="menu-grid">
+      <view class="grid-item" bindtap="navigateTo" data-page="unpaid" hover-class="grid-item-hover">
+        <image src="/images/icon-unpaid.png" mode="aspectFit" class="grid-icon"></image>
+        <text class="grid-label">待付款</text>
+      </view>
+      <view class="grid-item" bindtap="navigateTo" data-page="paid" hover-class="grid-item-hover">
+        <image src="/images/icon-paid.png" mode="aspectFit" class="grid-icon"></image>
+        <text class="grid-label">已付款</text>
+      </view>
+      <view class="grid-item" bindtap="navigateTo" data-page="cart" hover-class="grid-item-hover">
+        <image src="/images/icon-cart.png" mode="aspectFit" class="grid-icon"></image>
+        <text class="grid-label">购物车</text>
+        <view class="badge" wx:if="{{cartCount > 0}}">{{cartCount}}</view>
+      </view>
+      <view class="grid-item" bindtap="navigateTo" data-page="favorite" hover-class="grid-item-hover">
+        <image src="/images/icon-favorite.png" mode="aspectFit" class="grid-icon"></image>
+        <text class="grid-label">收藏</text>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 学习服务 -->
+  <view class="menu-card fade-in" style="animation-delay: 0.2s">
+    <view class="menu-title">学习服务</view>
+    <view class="menu-list">
+      <view class="menu-item" bindtap="navigateTo" data-page="learning" hover-class="menu-item-hover">
+        <image src="/images/icon-learning.png" mode="aspectFit" class="menu-icon"></image>
+        <text class="menu-text">学习中心</text>
+        <image src="/images/icon-arrow.png" mode="aspectFit" class="arrow-icon"></image>
+      </view>
+      
+      <view class="menu-item" bindtap="navigateTo" data-page="download" hover-class="menu-item-hover">
+        <image src="/images/icon-download.png" mode="aspectFit" class="menu-icon"></image>
+        <text class="menu-text">离线缓存</text>
+        <image src="/images/icon-arrow.png" mode="aspectFit" class="arrow-icon"></image>
+      </view>
+      
+      <view class="menu-item" bindtap="navigateTo" data-page="notes" hover-class="menu-item-hover">
+        <image src="/images/icon-notes.png" mode="aspectFit" class="menu-icon"></image>
+        <text class="menu-text">学习笔记</text>
+        <image src="/images/icon-arrow.png" mode="aspectFit" class="arrow-icon"></image>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 帮助设置 -->
+  <view class="menu-card fade-in" style="animation-delay: 0.3s">
+    <view class="menu-title">帮助与设置</view>
+    <view class="menu-list">
+      <view class="menu-item" bindtap="clearCache" hover-class="menu-item-hover">
+        <image src="/images/icon-clear.png" mode="aspectFit" class="menu-icon"></image>
+        <text class="menu-text">清除缓存</text>
+        <image src="/images/icon-arrow.png" mode="aspectFit" class="arrow-icon"></image>
+      </view>
+      
+      <view class="menu-item" bindtap="showFeedback" hover-class="menu-item-hover">
+        <image src="/images/icon-feedback.png" mode="aspectFit" class="menu-icon"></image>
+        <text class="menu-text">意见反馈</text>
+        <image src="/images/icon-arrow.png" mode="aspectFit" class="arrow-icon"></image>
+      </view>
+      
+      <view class="menu-item" bindtap="showAbout" hover-class="menu-item-hover">
+        <image src="/images/icon-about.png" mode="aspectFit" class="menu-icon"></image>
+        <text class="menu-text">关于我们</text>
+        <image src="/images/icon-arrow.png" mode="aspectFit" class="arrow-icon"></image>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 版本信息 -->
+  <view class="version-info">雷叔智能 v1.0.0</view>
+</view>

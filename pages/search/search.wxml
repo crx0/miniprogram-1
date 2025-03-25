@@ -1,0 +1,49 @@
+<view class="container">
+  <!-- 搜索框 -->
+  <view class="search-container">
+    <view class="search-box">
+      <icon type="search" size="16" color="#999"></icon>
+      <input class="search-input" placeholder="搜索关键词" confirm-type="search" bindconfirm="doSearch" value="{{keyword}}" focus="{{true}}" bindinput="onInput"></input>
+      <icon wx:if="{{keyword.length > 0}}" type="clear" size="16" color="#999" bindtap="clearKeyword"></icon>
+    </view>
+    <view class="cancel-btn" bindtap="goBack">取消</view>
+  </view>
+  
+  <!-- 搜索历史 -->
+  <view class="history-container" wx:if="{{!keyword && searchHistory.length > 0}}">
+    <view class="history-header">
+      <text class="history-title">搜索历史</text>
+      <icon type="clear" size="16" color="#999" bindtap="clearHistory"></icon>
+    </view>
+    <view class="history-list">
+      <view wx:for="{{searchHistory}}" wx:key="*this" class="history-item" bindtap="useHistoryKeyword" data-keyword="{{item}}">
+        <text>{{item}}</text>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 搜索结果 -->
+  <view class="result-container" wx:if="{{keyword && hasSearch}}">
+    <!-- 无结果提示 -->
+    <view class="empty-tip" wx:if="{{searchResult.length === 0}}">
+      <text>没有找到相关内容</text>
+    </view>
+    
+    <!-- 结果列表 -->
+    <view class="news-list" wx:else>
+      <view wx:for="{{searchResult}}" wx:key="id" class="news-item" bindtap="navigateToArticle" data-id="{{item.id}}">
+        <view class="news-item-left">
+          <view class="news-item-title">{{item.title}}</view>
+          <view class="news-item-info">
+            <text>{{item.categoryName}}</text>
+            <text>{{item.publishTime}}</text>
+            <text>{{item.viewCount}}阅读</text>
+          </view>
+        </view>
+        <view class="news-item-right">
+          <image src="{{item.coverImage}}" mode="aspectFill" class="news-item-image"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
