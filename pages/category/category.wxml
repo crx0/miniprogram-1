@@ -78,15 +78,4 @@
       </view>
     </block>
   </view>
-
-  <!-- 加载更多 -->
-  <view class="loading" wx:if="{{loading}}">
-    <view class="loading-spinner"></view>
-    <text class="loading-text">加载中...</text>
-  </view>
-
-  <!-- 加载完成 -->
-  <view class="no-more" wx:if="{{noMore}}">
-    <text>已经到底了~</text>
-  </view>
 </view> 
