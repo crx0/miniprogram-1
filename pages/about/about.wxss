@@ -2,16 +2,20 @@
   padding: 30rpx;
   background-color: #f6f7fb;
   min-height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* 页面标题 */
 .page-header {
   background-color: #2b5cff;
   color: #fff;
-  padding: 40rpx 30rpx;
+  padding: calc(40rpx + var(--safe-area-inset-top)) 30rpx 40rpx;
   border-radius: 16rpx;
   margin-bottom: 30rpx;
   box-shadow: 0 8rpx 20rpx rgba(43, 92, 255, 0.2);
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .title {
@@ -23,6 +27,7 @@
 .subtitle {
   font-size: 28rpx;
   opacity: 0.8;
+  max-width: 85%;
 }
 
 /* 通用区块样式 */
@@ -32,6 +37,8 @@
   padding: 30rpx;
   margin-bottom: 30rpx;
   box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .section-title {
@@ -60,6 +67,9 @@
   display: flex;
   align-items: center;
   margin-bottom: 40rpx;
+  flex-wrap: wrap;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .logo-container {
@@ -69,6 +79,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 }
 
 .company-logo {
@@ -78,6 +89,7 @@
 
 .company-details {
   flex: 1;
+  min-width: 250rpx;
 }
 
 .info-item {
@@ -101,6 +113,8 @@
   flex-direction: column;
   gap: 30rpx;
   margin-bottom: 40rpx;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .mission, .vision {
@@ -108,6 +122,8 @@
   padding: 20rpx;
   border-radius: 12rpx;
   border-left: 8rpx solid #2b5cff;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .mv-title {
@@ -135,6 +151,8 @@
   display: flex;
   flex-direction: column;
   gap: 20rpx;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .value-item {
@@ -143,12 +161,15 @@
   background-color: #f8f9ff;
   padding: 20rpx;
   border-radius: 12rpx;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .value-icon {
   margin-right: 15rpx;
   color: #2b5cff;
   font-size: 36rpx;
+  flex-shrink: 0;
 }
 
 .value-text {
@@ -162,6 +183,8 @@
 .timeline {
   position: relative;
   padding-left: 30rpx;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .timeline::before {
@@ -177,6 +200,8 @@
 .timeline-item {
   position: relative;
   padding-bottom: 40rpx;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .timeline-year {
@@ -188,6 +213,8 @@
 
 .timeline-content {
   position: relative;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .timeline-dot {
@@ -219,6 +246,8 @@
   display: flex;
   flex-direction: column;
   gap: 30rpx;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .team-member {
@@ -226,6 +255,8 @@
   background-color: #f8f9ff;
   padding: 20rpx;
   border-radius: 12rpx;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .member-avatar {
@@ -234,6 +265,7 @@
   border-radius: 60rpx;
   margin-right: 20rpx;
   border: 2rpx solid #eaeaea;
+  flex-shrink: 0;
 }
 
 .member-info {
@@ -248,120 +280,178 @@
 }
 
 .member-title {
-  font-size: 26rpx;
+  font-size: 24rpx;
   color: #2b5cff;
   margin-bottom: 10rpx;
+  background-color: rgba(43, 92, 255, 0.1);
+  display: inline-block;
+  padding: 4rpx 12rpx;
+  border-radius: 6rpx;
 }
 
-.member-background {
-  font-size: 24rpx;
+.member-bio {
+  font-size: 26rpx;
   color: #666;
   line-height: 1.5;
 }
 
-/* 荣誉资质部分 */
-.honors-list {
+/* 资质认证部分 */
+.certifications {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   gap: 20rpx;
+  margin-top: 20rpx;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-.honor-item {
+.cert-item {
+  width: calc(33.33% - 14rpx);
+  border-radius: 12rpx;
+  overflow: hidden;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+.cert-image {
+  width: 100%;
+  height: 180rpx;
+  object-fit: cover;
+}
+
+.cert-title {
+  font-size: 24rpx;
+  color: #333;
+  padding: 12rpx;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 合作伙伴部分 */
+.partners {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 20rpx;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.partner-item {
+  width: 30%;
+  height: 120rpx;
+  margin-bottom: 20rpx;
+  background-color: #fff;
+  border-radius: 8rpx;
   display: flex;
   align-items: center;
-  padding: 20rpx;
-  background-color: #f8f9ff;
-  border-radius: 12rpx;
+  justify-content: center;
+  padding: 15rpx;
+  box-shadow: 0 2rpx 6rpx rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
 }
 
-.honor-icon {
-  margin-right: 20rpx;
-  color: #ffc107;
-  font-size: 44rpx;
+.partner-logo {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
 }
 
-.honor-details {
-  flex: 1;
-}
-
-.honor-title {
-  font-size: 28rpx;
-  font-weight: 500;
-  color: #333;
-  margin-bottom: 5rpx;
-}
-
-.honor-year {
-  font-size: 24rpx;
-  color: #666;
-}
-
-/* 联系我们部分 */
-.contact-description {
-  font-size: 28rpx;
-  color: #666;
-  margin-bottom: 30rpx;
-  line-height: 1.5;
-}
-
-.contact-list {
+/* 联系方式部分 */
+.contact-info {
   display: flex;
   flex-direction: column;
   gap: 20rpx;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .contact-item {
   display: flex;
   align-items: center;
-  padding: 20rpx;
-  background-color: #f8f9ff;
-  border-radius: 12rpx;
-  transition: all 0.3s;
-}
-
-.contact-item:active {
-  background-color: #e8eaff;
+  font-size: 28rpx;
+  color: #333;
 }
 
 .contact-icon {
-  margin-right: 20rpx;
-  color: #2b5cff;
-  font-size: 40rpx;
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 15rpx;
+  flex-shrink: 0;
 }
 
-.contact-info {
-  flex: 1;
+.contact-map {
+  width: 100%;
+  height: 400rpx;
+  border-radius: 12rpx;
+  margin-top: 20rpx;
+  overflow: hidden;
 }
 
-.contact-label {
-  font-size: 26rpx;
-  color: #666;
-  margin-bottom: 5rpx;
+/* 底部部分 */
+.footer {
+  text-align: center;
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 40rpx;
+  padding: 30rpx 0;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-.contact-value {
-  font-size: 28rpx;
-  color: #333;
-  font-weight: 500;
+.copyright {
+  margin-bottom: 10rpx;
 }
 
-/* 适配小屏幕设备 */
+/* 小屏幕适配 */
 @media screen and (max-width: 375px) {
   .company-basic {
     flex-direction: column;
+    align-items: flex-start;
   }
   
   .logo-container {
-    margin-right: 0;
     margin-bottom: 20rpx;
   }
   
-  .team-member {
-    flex-direction: column;
+  .cert-item {
+    width: calc(50% - 10rpx);
+  }
+  
+  .partner-item {
+    width: 48%;
+  }
+  
+  .title {
+    font-size: 38rpx;
+  }
+  
+  .section-title {
+    font-size: 32rpx;
+  }
+  
+  .section-title::before {
+    height: 32rpx;
   }
   
   .member-avatar {
-    margin-right: 0;
-    margin-bottom: 20rpx;
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 50rpx;
+  }
+  
+  .member-name {
+    font-size: 28rpx;
+  }
+  
+  .member-title {
+    font-size: 22rpx;
+  }
+  
+  .contact-map {
+    height: 320rpx;
   }
 } 

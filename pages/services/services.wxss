@@ -3,22 +3,27 @@
   padding: 0 0 40rpx;
   background-color: #F5F7FA;
   min-height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* 页面标题 */
 .page-header {
   background-color: #3D5AFE;
-  padding: 60rpx 40rpx 40rpx;
+  padding: calc(60rpx + var(--safe-area-inset-top)) 40rpx 40rpx;
   color: #FFFFFF;
   position: relative;
   overflow: hidden;
   margin-bottom: 20rpx;
   box-shadow: 0 6rpx 16rpx rgba(61, 90, 254, 0.15);
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .header-content {
   position: relative;
   z-index: 2;
+  width: 100%;
 }
 
 .header-title {
@@ -30,6 +35,7 @@
 .header-subtitle {
   font-size: 28rpx;
   opacity: 0.9;
+  max-width: 80%;
 }
 
 .page-header::after {
@@ -63,11 +69,18 @@
   margin-bottom: 20rpx;
   box-shadow: 0 4rpx 10rpx rgba(0, 0, 0, 0.05);
   overflow: hidden;
+  width: 100%;
+  box-sizing: border-box;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 .category-scroll {
   white-space: nowrap;
   padding: 20rpx 10rpx;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .category-item {
@@ -78,6 +91,7 @@
   color: #666;
   position: relative;
   transition: all 0.3s;
+  border-radius: 8rpx;
 }
 
 .category-item.active {
@@ -98,12 +112,13 @@
 
 .category-item-hover {
   background-color: rgba(0, 0, 0, 0.05);
-  border-radius: 8rpx;
 }
 
 /* 服务列表 */
 .service-list {
   padding: 20rpx;
+  box-sizing: border-box;
+  width: 100%;
 }
 
 .service-card {
@@ -113,11 +128,13 @@
   margin-bottom: 30rpx;
   overflow: hidden;
   transition: all 0.3s;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-.service-card-hover {
-  transform: translateY(-6rpx);
-  box-shadow: 0 10rpx 20rpx rgba(0, 0, 0, 0.12);
+.service-card:active {
+  transform: scale(0.98);
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.1);
 }
 
 .service-icon-container {
@@ -125,6 +142,9 @@
   padding: 40rpx;
   display: flex;
   justify-content: center;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .service-icon {
@@ -134,6 +154,8 @@
 
 .service-content {
   padding: 30rpx;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .service-title {
@@ -158,10 +180,13 @@
   color: #666;
   line-height: 1.6;
   margin-bottom: 30rpx;
+  text-align: justify;
 }
 
 .service-features {
   margin-bottom: 30rpx;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .feature-title {
@@ -176,15 +201,18 @@
 .feature-list {
   display: flex;
   flex-wrap: wrap;
+  width: 100%;
 }
 
 .feature-item {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   width: 50%;
   margin-bottom: 16rpx;
   font-size: 26rpx;
   color: #666;
+  box-sizing: border-box;
+  padding-right: 10rpx;
 }
 
 .feature-dot {
@@ -194,11 +222,14 @@
   background-color: #3D5AFE;
   margin-right: 12rpx;
   flex-shrink: 0;
+  margin-top: 8rpx;
 }
 
 .service-action {
   display: flex;
   justify-content: flex-end;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .action-button {
@@ -210,6 +241,11 @@
   transition: all 0.3s;
 }
 
+.action-button:active {
+  opacity: 0.8;
+  transform: scale(0.98);
+}
+
 /* 合作流程 */
 .process-section {
   background-color: #FFFFFF;
@@ -217,6 +253,8 @@
   margin: 20rpx;
   border-radius: 16rpx;
   box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.08);
+  width: calc(100% - 40rpx);
+  box-sizing: border-box;
 }
 
 .section-title {
@@ -243,90 +281,118 @@
 .process-steps {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   margin-top: 60rpx;
   flex-wrap: wrap;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .process-step {
-  flex: 1;
-  min-width: 150rpx;
+  width: 23%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
   position: relative;
-  z-index: 2;
+  box-sizing: border-box;
 }
 
 .step-number {
-  width: 60rpx;
-  height: 60rpx;
+  width: 80rpx;
+  height: 80rpx;
   border-radius: 50%;
   background-color: #3D5AFE;
   color: #FFFFFF;
   display: flex;
-  justify-content: center;
   align-items: center;
-  font-size: 28rpx;
+  justify-content: center;
+  font-size: 36rpx;
   font-weight: bold;
   margin-bottom: 20rpx;
-}
-
-.step-info {
-  text-align: center;
+  position: relative;
+  z-index: 2;
 }
 
 .step-title {
   font-size: 28rpx;
   font-weight: bold;
   color: #333;
-  margin-bottom: 10rpx;
+  margin-bottom: 16rpx;
 }
 
 .step-desc {
   font-size: 24rpx;
-  color: #999;
-  line-height: 1.4;
+  color: #666;
+  line-height: 1.5;
 }
 
-.process-arrow {
-  width: 30rpx;
-  height: 30rpx;
-  border-top: 3rpx solid #3D5AFE;
-  border-right: 3rpx solid #3D5AFE;
-  transform: rotate(45deg);
-  flex-shrink: 0;
-  margin: 0 10rpx;
+.step-line {
+  position: absolute;
+  top: 40rpx;
+  left: 50%;
+  width: 100%;
+  height: 2rpx;
+  background-color: #e0e0e0;
 }
 
-/* 优势部分 */
-.advantage-section {
+.process-step:first-child .step-line {
+  left: 50%;
+  width: 50%;
+}
+
+.process-step:last-child .step-line {
+  width: 50%;
+  right: 50%;
+  left: auto;
+}
+
+/* 服务优势 */
+.advantages-section {
   background-color: #FFFFFF;
   padding: 40rpx 30rpx;
   margin: 20rpx;
   border-radius: 16rpx;
   box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.08);
+  width: calc(100% - 40rpx);
+  box-sizing: border-box;
 }
 
-.advantage-grid {
+.advantages-list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
   margin-top: 40rpx;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .advantage-item {
-  width: 48%;
-  margin-bottom: 30rpx;
+  width: 50%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  margin-bottom: 40rpx;
+  padding: 0 10rpx;
+  box-sizing: border-box;
 }
 
 .advantage-icon {
-  width: 100rpx;
-  height: 100rpx;
-  margin-bottom: 20rpx;
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  background-color: rgba(61, 90, 254, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20rpx;
+  flex-shrink: 0;
+}
+
+.advantage-icon image {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.advantage-content {
+  flex: 1;
 }
 
 .advantage-title {
@@ -339,7 +405,6 @@
 .advantage-desc {
   font-size: 24rpx;
   color: #666;
-  text-align: center;
   line-height: 1.5;
 }
 
@@ -350,68 +415,92 @@
   margin: 20rpx;
   border-radius: 16rpx;
   box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.08);
-  text-align: center;
-}
-
-.contact-title {
-  font-size: 36rpx;
-  font-weight: bold;
-  color: #333;
-  margin-bottom: 20rpx;
+  width: calc(100% - 40rpx);
+  box-sizing: border-box;
 }
 
 .contact-desc {
   font-size: 28rpx;
   color: #666;
-  margin-bottom: 30rpx;
-}
-
-.contact-info {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 30rpx;
-}
-
-.contact-item {
-  font-size: 28rpx;
-  color: #333;
-  margin-bottom: 16rpx;
-  display: flex;
-  align-items: center;
+  line-height: 1.6;
+  text-align: center;
+  margin-bottom: 40rpx;
 }
 
 .contact-button {
   background-color: #3D5AFE;
   color: #FFFFFF;
-  font-size: 32rpx;
   padding: 20rpx 0;
-  border-radius: 10rpx;
+  border-radius: 8rpx;
+  font-size: 32rpx;
+  text-align: center;
   width: 80%;
   margin: 0 auto;
-  transition: all 0.3s;
 }
 
-.button-hover {
-  background-color: #304FFE;
+.contact-button:active {
+  opacity: 0.8;
   transform: scale(0.98);
 }
 
-/* 响应式处理 */
+/* 空状态 */
+.empty-state {
+  padding: 100rpx 0;
+  text-align: center;
+}
+
+.empty-image {
+  width: 200rpx;
+  height: 200rpx;
+  margin: 0 auto 30rpx;
+}
+
+.empty-text {
+  font-size: 28rpx;
+  color: #999;
+}
+
+/* 小屏幕适配 */
 @media screen and (max-width: 375px) {
+  .process-step {
+    width: 48%;
+    margin-bottom: 40rpx;
+  }
+  
+  .step-line {
+    display: none;
+  }
+  
+  .advantage-item {
+    width: 100%;
+  }
+  
   .feature-item {
     width: 100%;
   }
-}
-
-@media screen and (min-width: 768px) {
-  .service-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+  
+  .header-title {
+    font-size: 36rpx;
   }
-
-  .service-card {
-    width: 48%;
+  
+  .header-subtitle {
+    font-size: 26rpx;
+  }
+  
+  .service-icon {
+    width: 100rpx;
+    height: 100rpx;
+  }
+  
+  .service-title {
+    font-size: 32rpx;
+  }
+  
+  .section-title {
+    font-size: 32rpx;
+  }
+  
+  .contact-button {
+    width: 100%;
   }
 } 

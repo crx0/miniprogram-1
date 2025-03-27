@@ -3,22 +3,27 @@
   padding: 0 0 40rpx;
   background-color: #F5F7FA;
   min-height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* 页面标题 */
 .page-header {
   background-color: #3D5AFE;
-  padding: 60rpx 40rpx 40rpx;
+  padding: calc(60rpx + var(--safe-area-inset-top)) 40rpx 40rpx;
   color: #FFFFFF;
   position: relative;
   overflow: hidden;
   margin-bottom: 20rpx;
   box-shadow: 0 6rpx 16rpx rgba(61, 90, 254, 0.15);
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .header-content {
   position: relative;
   z-index: 2;
+  width: 100%;
 }
 
 .header-title {
@@ -30,6 +35,7 @@
 .header-subtitle {
   font-size: 28rpx;
   opacity: 0.9;
+  max-width: 80%;
 }
 
 .page-header::after {
@@ -63,11 +69,18 @@
   margin-bottom: 20rpx;
   box-shadow: 0 4rpx 10rpx rgba(0, 0, 0, 0.05);
   overflow: hidden;
+  width: 100%;
+  box-sizing: border-box;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 .category-scroll {
   white-space: nowrap;
   padding: 20rpx 10rpx;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .category-item {
@@ -78,6 +91,7 @@
   color: #666;
   position: relative;
   transition: all 0.3s;
+  border-radius: 8rpx;
 }
 
 .category-item.active {
@@ -98,12 +112,13 @@
 
 .category-item-hover {
   background-color: rgba(0, 0, 0, 0.05);
-  border-radius: 8rpx;
 }
 
 /* 案例列表 */
 .case-list {
   padding: 20rpx;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .case-card {
@@ -113,11 +128,13 @@
   margin-bottom: 30rpx;
   overflow: hidden;
   transition: all 0.3s;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-.case-card-hover {
-  transform: translateY(-6rpx);
-  box-shadow: 0 10rpx 20rpx rgba(0, 0, 0, 0.12);
+.case-card:active {
+  transform: scale(0.98);
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.1);
 }
 
 .case-image {
@@ -128,6 +145,8 @@
 
 .case-content {
   padding: 30rpx;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .case-title {
@@ -152,6 +171,8 @@
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 20rpx;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .case-tag {
@@ -177,6 +198,8 @@
   padding: 20rpx;
   border-radius: 8rpx;
   margin-bottom: 24rpx;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .results-title {
@@ -189,6 +212,8 @@
 .results-list {
   display: flex;
   flex-wrap: wrap;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .result-item {
@@ -215,6 +240,8 @@
 .case-action {
   display: flex;
   justify-content: flex-end;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .view-detail {
@@ -243,6 +270,8 @@
   margin: 20rpx;
   border-radius: 16rpx;
   box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.08);
+  width: calc(100% - 40rpx);
+  box-sizing: border-box;
 }
 
 .section-title {
@@ -270,87 +299,113 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin-top: 30rpx;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-.client-item {
-  width: 25%;
-  height: 120rpx;
+.client-logo-item {
+  width: 30%;
+  height: 150rpx;
+  margin-bottom: 30rpx;
+  background-color: #FFFFFF;
+  border-radius: 8rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
   display: flex;
-  justify-content: center;
   align-items: center;
-  margin-bottom: 20rpx;
+  justify-content: center;
+  padding: 20rpx;
+  box-sizing: border-box;
 }
 
 .client-logo {
-  width: 80%;
-  height: 80rpx;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
-  filter: grayscale(100%);
-  opacity: 0.7;
-  transition: all 0.3s;
 }
 
-.client-item:hover .client-logo {
-  filter: grayscale(0);
-  opacity: 1;
-}
-
-/* 联系咨询 */
+/* 联系我们 */
 .contact-section {
-  background-color: #3D5AFE;
+  background-color: #FFFFFF;
   padding: 40rpx 30rpx;
   margin: 20rpx;
   border-radius: 16rpx;
-  box-shadow: 0 4rpx 16rpx rgba(61, 90, 254, 0.2);
-  text-align: center;
-  color: #FFFFFF;
-}
-
-.contact-title {
-  font-size: 36rpx;
-  font-weight: bold;
-  margin-bottom: 20rpx;
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.08);
+  width: calc(100% - 40rpx);
+  box-sizing: border-box;
 }
 
 .contact-desc {
   font-size: 28rpx;
-  margin-bottom: 30rpx;
-  opacity: 0.9;
+  color: #666;
+  line-height: 1.6;
+  text-align: center;
+  margin-bottom: 40rpx;
 }
 
 .contact-button {
-  background-color: #FFFFFF;
-  color: #3D5AFE;
-  font-size: 32rpx;
-  font-weight: 500;
+  background-color: #3D5AFE;
+  color: #FFFFFF;
   padding: 20rpx 0;
-  border-radius: 10rpx;
+  border-radius: 8rpx;
+  font-size: 32rpx;
+  text-align: center;
   width: 80%;
   margin: 0 auto;
-  transition: all 0.3s;
 }
 
-.button-hover {
+.contact-button:active {
+  opacity: 0.8;
   transform: scale(0.98);
-  opacity: 0.9;
 }
 
-/* 响应式处理 */
+/* 空状态 */
+.empty-state {
+  padding: 100rpx 0;
+  text-align: center;
+}
+
+.empty-image {
+  width: 200rpx;
+  height: 200rpx;
+  margin: 0 auto 30rpx;
+}
+
+.empty-text {
+  font-size: 28rpx;
+  color: #999;
+}
+
+/* 小屏幕适配 */
 @media screen and (max-width: 375px) {
   .result-item {
     width: 100%;
   }
-}
-
-@media screen and (min-width: 768px) {
-  .case-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-
-  .case-card {
+  
+  .client-logo-item {
     width: 48%;
+  }
+  
+  .header-title {
+    font-size: 36rpx;
+  }
+  
+  .header-subtitle {
+    font-size: 26rpx;
+  }
+  
+  .case-title {
+    font-size: 32rpx;
+  }
+  
+  .section-title {
+    font-size: 32rpx;
+  }
+  
+  .case-image {
+    height: 260rpx;
+  }
+  
+  .contact-button {
+    width: 100%;
   }
 } 
