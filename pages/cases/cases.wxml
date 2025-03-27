@@ -1,0 +1,78 @@
+<view class="container">
+  <!-- 页面标题 -->
+  <view class="page-header">
+    <view class="header-content">
+      <view class="header-title">成功案例</view>
+      <view class="header-subtitle">汇聚各行业AI应用实践，展示雷叔智能的技术实力</view>
+    </view>
+  </view>
+  
+  <!-- 分类导航 -->
+  <view class="category-nav">
+    <scroll-view scroll-x="{{true}}" class="category-scroll" enhanced="{{true}}" show-scrollbar="{{false}}" scroll-with-animation="{{true}}">
+      <view 
+        wx:for="{{categories}}" 
+        wx:key="id" 
+        class="category-item {{currentCategory === item.id ? 'active' : ''}}" 
+        hover-class="category-item-hover" 
+        bindtap="switchCategory" 
+        data-id="{{item.id}}">
+        <text>{{item.name}}</text>
+        <view class="category-indicator" wx:if="{{currentCategory === item.id}}"></view>
+      </view>
+    </scroll-view>
+  </view>
+  
+  <!-- 案例列表 -->
+  <view class="case-list">
+    <view 
+      wx:for="{{filteredCases}}" 
+      wx:key="id" 
+      class="case-card" 
+      hover-class="case-card-hover" 
+      bindtap="navigateToCaseDetail" 
+      data-id="{{item.id}}">
+      <image src="{{item.coverImage}}" mode="aspectFill" class="case-image"></image>
+      <view class="case-content">
+        <view class="case-title">{{item.title}}</view>
+        <view class="case-client">
+          <text class="client-label">客户：</text>
+          <text>{{item.client}}</text>
+        </view>
+        <view class="case-tags">
+          <view class="case-tag" wx:for="{{item.tags}}" wx:for-item="tag" wx:key="*this">{{tag}}</view>
+        </view>
+        <view class="case-description">{{item.description}}</view>
+        <view class="case-results">
+          <view class="results-title">项目成效：</view>
+          <view class="results-list">
+            <view class="result-item" wx:for="{{item.results}}" wx:for-item="result" wx:key="*this">
+              <view class="result-dot"></view>
+              <text>{{result}}</text>
+            </view>
+          </view>
+        </view>
+        <view class="case-action">
+          <view class="view-detail">查看详情</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 合作客户 -->
+  <view class="clients-section">
+    <view class="section-title">合作客户</view>
+    <view class="clients-grid">
+      <view class="client-item" wx:for="{{[1,2,3,4,5,6,7,8]}}" wx:key="*this">
+        <image src="/images/client{{item}}.png" mode="aspectFit" class="client-logo"></image>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 联系咨询 -->
+  <view class="contact-section">
+    <view class="contact-title">寻找适合您的解决方案</view>
+    <view class="contact-desc">针对您的业务需求，我们提供专业的AI解决方案定制服务</view>
+    <view class="contact-button" hover-class="button-hover">立即咨询</view>
+  </view>
+</view> 

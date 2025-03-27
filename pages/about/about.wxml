@@ -1,0 +1,148 @@
+<view class="container">
+  <!-- 页面标题 -->
+  <view class="page-header">
+    <view class="title">关于我们</view>
+    <view class="subtitle">雷叔智能科技 - 人工智能行业赋能专家</view>
+  </view>
+
+  <!-- 公司介绍 -->
+  <view class="section company-info">
+    <view class="section-title">公司介绍</view>
+    <view class="company-basic">
+      <view class="logo-container">
+        <image class="company-logo" src="/images/logo.png" mode="aspectFit"></image>
+      </view>
+      <view class="company-details">
+        <view class="info-item">
+          <text class="label">公司名称：</text>
+          <text class="value">{{companyInfo.name}}</text>
+        </view>
+        <view class="info-item">
+          <text class="label">成立时间：</text>
+          <text class="value">{{companyInfo.founded}}</text>
+        </view>
+        <view class="info-item">
+          <text class="label">公司地址：</text>
+          <text class="value">{{companyInfo.location}}</text>
+        </view>
+      </view>
+    </view>
+    
+    <view class="mission-vision">
+      <view class="mission">
+        <view class="mv-title">使命</view>
+        <view class="mv-content">{{companyInfo.mission}}</view>
+      </view>
+      <view class="vision">
+        <view class="mv-title">愿景</view>
+        <view class="mv-content">{{companyInfo.vision}}</view>
+      </view>
+    </view>
+    
+    <view class="values">
+      <view class="values-title">核心价值观</view>
+      <view class="values-list">
+        <view class="value-item" wx:for="{{companyInfo.values}}" wx:key="index">
+          <view class="value-icon">
+            <text class="iconfont icon-value"></text>
+          </view>
+          <view class="value-text">{{item}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 发展历程 -->
+  <view class="section milestones">
+    <view class="section-title">发展历程</view>
+    <view class="timeline">
+      <view class="timeline-item" wx:for="{{milestones}}" wx:key="year">
+        <view class="timeline-year">{{item.year}}</view>
+        <view class="timeline-content">
+          <view class="timeline-dot"></view>
+          <view class="timeline-title">{{item.title}}</view>
+          <view class="timeline-description">{{item.description}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 团队介绍 -->
+  <view class="section team">
+    <view class="section-title">核心团队</view>
+    <view class="team-list">
+      <view class="team-member" wx:for="{{team}}" wx:key="name">
+        <image class="member-avatar" src="{{item.avatar}}" mode="aspectFill"></image>
+        <view class="member-info">
+          <view class="member-name">{{item.name}}</view>
+          <view class="member-title">{{item.title}}</view>
+          <view class="member-background">{{item.background}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 荣誉资质 -->
+  <view class="section honors">
+    <view class="section-title">荣誉资质</view>
+    <view class="honors-list">
+      <view class="honor-item" wx:for="{{honors}}" wx:key="title">
+        <view class="honor-icon">
+          <text class="iconfont icon-award"></text>
+        </view>
+        <view class="honor-details">
+          <view class="honor-title">{{item.title}}</view>
+          <view class="honor-year">{{item.year}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 联系我们 -->
+  <view class="section contact">
+    <view class="section-title">联系我们</view>
+    <view class="contact-description">欢迎联系我们了解更多关于雷叔智能的产品与服务</view>
+    
+    <view class="contact-list">
+      <view class="contact-item" bindtap="copyContact" data-type="address">
+        <view class="contact-icon">
+          <text class="iconfont icon-location"></text>
+        </view>
+        <view class="contact-info">
+          <view class="contact-label">公司地址</view>
+          <view class="contact-value">{{contactInfo.address}}</view>
+        </view>
+      </view>
+      
+      <view class="contact-item" bindtap="makePhoneCall">
+        <view class="contact-icon">
+          <text class="iconfont icon-phone"></text>
+        </view>
+        <view class="contact-info">
+          <view class="contact-label">联系电话</view>
+          <view class="contact-value">{{contactInfo.phone}}</view>
+        </view>
+      </view>
+      
+      <view class="contact-item" bindtap="copyContact" data-type="email">
+        <view class="contact-icon">
+          <text class="iconfont icon-email"></text>
+        </view>
+        <view class="contact-info">
+          <view class="contact-label">电子邮箱</view>
+          <view class="contact-value">{{contactInfo.email}}</view>
+        </view>
+      </view>
+      
+      <view class="contact-item" bindtap="copyContact" data-type="website">
+        <view class="contact-icon">
+          <text class="iconfont icon-website"></text>
+        </view>
+        <view class="contact-info">
+          <view class="contact-label">公司网站</view>
+          <view class="contact-value">{{contactInfo.website}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view> 

@@ -1,0 +1,139 @@
+<view class="container">
+  <!-- 页面标题 -->
+  <view class="page-header">
+    <view class="header-content">
+      <view class="header-title">企业服务</view>
+      <view class="header-subtitle">提供全方位的AI解决方案，助力企业数字化转型</view>
+    </view>
+  </view>
+  
+  <!-- 分类导航 -->
+  <view class="category-nav">
+    <scroll-view scroll-x="{{true}}" class="category-scroll" enhanced="{{true}}" show-scrollbar="{{false}}" scroll-with-animation="{{true}}">
+      <view 
+        wx:for="{{categories}}" 
+        wx:key="id" 
+        class="category-item {{currentCategory === item.id ? 'active' : ''}}" 
+        hover-class="category-item-hover" 
+        bindtap="switchCategory" 
+        data-id="{{item.id}}">
+        <text>{{item.name}}</text>
+        <view class="category-indicator" wx:if="{{currentCategory === item.id}}"></view>
+      </view>
+    </scroll-view>
+  </view>
+  
+  <!-- 服务列表 -->
+  <view class="service-list">
+    <view 
+      wx:for="{{filteredServices}}" 
+      wx:key="id" 
+      class="service-card" 
+      hover-class="service-card-hover" 
+      bindtap="navigateToServiceDetail" 
+      data-id="{{item.id}}">
+      <view class="service-icon-container">
+        <image src="{{item.icon}}" mode="aspectFill" class="service-icon"></image>
+      </view>
+      <view class="service-content">
+        <view class="service-title">{{item.title}}</view>
+        <view class="service-category">{{item.category}}</view>
+        <view class="service-description">{{item.description}}</view>
+        <view class="service-features">
+          <view class="feature-title">核心优势</view>
+          <view class="feature-list">
+            <view class="feature-item" wx:for="{{item.features}}" wx:for-item="feature" wx:key="*this">
+              <view class="feature-dot"></view>
+              <text>{{feature}}</text>
+            </view>
+          </view>
+        </view>
+        <view class="service-action">
+          <view class="action-button">了解详情</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 合作流程 -->
+  <view class="process-section">
+    <view class="section-title">合作流程</view>
+    <view class="process-steps">
+      <view class="process-step">
+        <view class="step-number">01</view>
+        <view class="step-info">
+          <view class="step-title">需求沟通</view>
+          <view class="step-desc">深入了解客户需求，分析业务痛点</view>
+        </view>
+      </view>
+      <view class="process-arrow"></view>
+      <view class="process-step">
+        <view class="step-number">02</view>
+        <view class="step-info">
+          <view class="step-title">方案设计</view>
+          <view class="step-desc">制定个性化解决方案并确认细节</view>
+        </view>
+      </view>
+      <view class="process-arrow"></view>
+      <view class="process-step">
+        <view class="step-number">03</view>
+        <view class="step-info">
+          <view class="step-title">技术实现</view>
+          <view class="step-desc">团队开发实施，阶段性验证</view>
+        </view>
+      </view>
+      <view class="process-arrow"></view>
+      <view class="process-step">
+        <view class="step-number">04</view>
+        <view class="step-info">
+          <view class="step-title">部署交付</view>
+          <view class="step-desc">系统上线，培训及售后支持</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 服务优势 -->
+  <view class="advantage-section">
+    <view class="section-title">我们的优势</view>
+    <view class="advantage-grid">
+      <view class="advantage-item">
+        <image src="/images/advantage1.png" mode="aspectFit" class="advantage-icon"></image>
+        <view class="advantage-title">技术领先</view>
+        <view class="advantage-desc">掌握行业前沿AI技术，持续创新研发</view>
+      </view>
+      <view class="advantage-item">
+        <image src="/images/advantage2.png" mode="aspectFit" class="advantage-icon"></image>
+        <view class="advantage-title">专业团队</view>
+        <view class="advantage-desc">由AI领域资深专家组成研发团队</view>
+      </view>
+      <view class="advantage-item">
+        <image src="/images/advantage3.png" mode="aspectFit" class="advantage-icon"></image>
+        <view class="advantage-title">定制方案</view>
+        <view class="advantage-desc">根据企业需求提供个性化解决方案</view>
+      </view>
+      <view class="advantage-item">
+        <image src="/images/advantage4.png" mode="aspectFit" class="advantage-icon"></image>
+        <view class="advantage-title">全程服务</view>
+        <view class="advantage-desc">从需求到部署提供全生命周期服务</view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 联系我们 -->
+  <view class="contact-section">
+    <view class="contact-title">咨询服务</view>
+    <view class="contact-desc">如需了解更多服务详情，请联系我们的客户经理</view>
+    <view class="contact-info">
+      <view class="contact-item">
+        <text class="iconfont icon-phone"></text>
+        <text>400-123-4567</text>
+      </view>
+      <view class="contact-item">
+        <text class="iconfont icon-email"></text>
+        <text>service@leishu.ai</text>
+      </view>
+    </view>
+    <view class="contact-button" hover-class="button-hover">立即咨询</view>
+  </view>
+</view> 

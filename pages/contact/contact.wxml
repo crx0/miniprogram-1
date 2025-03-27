@@ -1,0 +1,167 @@
+<view class="container">
+  <!-- 页面标题 -->
+  <view class="page-header">
+    <view class="title">联系我们</view>
+    <view class="subtitle">随时为您提供专业的AI技术咨询与支持</view>
+  </view>
+
+  <!-- 联系信息 -->
+  <view class="section contact-info">
+    <view class="section-title">联系方式</view>
+    
+    <view class="contact-list">
+      <view class="contact-item" bindtap="copyContact" data-type="address">
+        <view class="contact-icon">
+          <text class="iconfont icon-location"></text>
+        </view>
+        <view class="contact-info">
+          <view class="contact-label">公司地址</view>
+          <view class="contact-value">{{contactInfo.address}}</view>
+        </view>
+        <view class="contact-action">复制</view>
+      </view>
+      
+      <view class="contact-item" bindtap="makePhoneCall">
+        <view class="contact-icon">
+          <text class="iconfont icon-phone"></text>
+        </view>
+        <view class="contact-info">
+          <view class="contact-label">联系电话</view>
+          <view class="contact-value">{{contactInfo.phone}}</view>
+        </view>
+        <view class="contact-action">拨打</view>
+      </view>
+      
+      <view class="contact-item" bindtap="copyContact" data-type="email">
+        <view class="contact-icon">
+          <text class="iconfont icon-email"></text>
+        </view>
+        <view class="contact-info">
+          <view class="contact-label">电子邮箱</view>
+          <view class="contact-value">{{contactInfo.email}}</view>
+        </view>
+        <view class="contact-action">复制</view>
+      </view>
+      
+      <view class="contact-item" bindtap="copyContact" data-type="website">
+        <view class="contact-icon">
+          <text class="iconfont icon-website"></text>
+        </view>
+        <view class="contact-info">
+          <view class="contact-label">公司网站</view>
+          <view class="contact-value">{{contactInfo.website}}</view>
+        </view>
+        <view class="contact-action">复制</view>
+      </view>
+      
+      <view class="contact-item" bindtap="copyContact" data-type="weixin">
+        <view class="contact-icon">
+          <text class="iconfont icon-wechat"></text>
+        </view>
+        <view class="contact-info">
+          <view class="contact-label">微信公众号</view>
+          <view class="contact-value">{{contactInfo.weixin}}</view>
+        </view>
+        <view class="contact-action">复制</view>
+      </view>
+    </view>
+    
+    <view class="contact-map-container">
+      <view class="map-title">公司位置</view>
+      <map 
+        class="contact-map" 
+        latitude="{{contactInfo.location.latitude}}" 
+        longitude="{{contactInfo.location.longitude}}"
+        markers="{{markers}}"
+        show-location="true"
+        bindtap="openLocation">
+      </map>
+      <view class="map-action" bindtap="openLocation">前往导航</view>
+    </view>
+  </view>
+
+  <!-- 在线留言 -->
+  <view class="section feedback-form">
+    <view class="section-title">在线留言</view>
+    <view class="form-desc">如果您有任何问题或需求，请填写以下表单，我们将尽快与您联系</view>
+    
+    <view class="form-group">
+      <view class="form-item">
+        <view class="form-label required">姓名</view>
+        <input 
+          class="form-input" 
+          placeholder="请输入您的姓名" 
+          value="{{feedbackForm.name}}"
+          data-field="name"
+          bindinput="inputChange" />
+      </view>
+      
+      <view class="form-item">
+        <view class="form-label required">电话</view>
+        <input 
+          class="form-input" 
+          placeholder="请输入您的联系电话" 
+          value="{{feedbackForm.phone}}"
+          data-field="phone"
+          bindinput="inputChange" />
+      </view>
+      
+      <view class="form-item">
+        <view class="form-label">邮箱</view>
+        <input 
+          class="form-input" 
+          placeholder="请输入您的电子邮箱" 
+          value="{{feedbackForm.email}}"
+          data-field="email"
+          bindinput="inputChange" />
+      </view>
+      
+      <view class="form-item">
+        <view class="form-label">公司</view>
+        <input 
+          class="form-input" 
+          placeholder="请输入您的公司名称" 
+          value="{{feedbackForm.company}}"
+          data-field="company"
+          bindinput="inputChange" />
+      </view>
+      
+      <view class="form-item">
+        <view class="form-label required">咨询内容</view>
+        <textarea 
+          class="form-textarea" 
+          placeholder="请输入您的咨询内容" 
+          value="{{feedbackForm.content}}"
+          data-field="content"
+          bindinput="inputChange" />
+      </view>
+    </view>
+    
+    <button 
+      class="submit-btn {{formValid ? 'active' : ''}}" 
+      bindtap="submitForm"
+      disabled="{{!formValid}}">
+      提交
+    </button>
+    
+    <view class="form-tips">
+      <text class="required"></text>
+      <text>为必填项，我们将严格保护您的隐私</text>
+    </view>
+  </view>
+
+  <!-- 企业服务时间 -->
+  <view class="section service-hours">
+    <view class="section-title">服务时间</view>
+    <view class="hours-content">
+      <view class="hours-item">
+        <view class="hours-day">工作日</view>
+        <view class="hours-time">09:00 - 18:00</view>
+      </view>
+      <view class="hours-item">
+        <view class="hours-day">周末及节假日</view>
+        <view class="hours-time">10:00 - 16:00（在线客服）</view>
+      </view>
+    </view>
+  </view>
+</view> 

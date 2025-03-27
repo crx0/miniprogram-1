@@ -3,7 +3,7 @@
   <view class="search-container">
     <view class="search-box" bindtap="navigateToSearch" hover-class="search-box-hover">
       <icon type="search" size="18" color="#8E8E93"></icon>
-      <view class="search-placeholder">搜索AI课程和技能</view>
+      <view class="search-placeholder">搜索服务和案例</view>
     </view>
   </view>
   
@@ -11,7 +11,7 @@
   <view class="swiper-container">
     <swiper indicator-dots="{{true}}" indicator-color="rgba(255, 255, 255, 0.3)" indicator-active-color="#FFFFFF" autoplay="{{true}}" interval="{{3000}}" duration="{{500}}" circular="{{true}}" previous-margin="20rpx" next-margin="20rpx" easing-function="easeOutCubic">
       <block wx:for="{{banners}}" wx:key="id">
-        <swiper-item bindtap="navigateToCourse" data-id="{{item.id}}" class="swiper-item">
+        <swiper-item bindtap="navigateToDetail" data-id="{{item.id}}" data-type="{{item.type}}" class="swiper-item">
           <image src="{{item.image}}" mode="aspectFill" class="swiper-image"></image>
           <view class="swiper-title">{{item.title}}</view>
         </swiper-item>
@@ -19,151 +19,123 @@
     </swiper>
   </view>
   
-  <!-- 功能入口 -->
-  <view class="quick-entry">
-    <view class="entry-item" bindtap="navigateToCategory" data-type="all">
-      <view class="entry-icon entry-icon-all"></view>
-      <text class="entry-text">全部课程</text>
+  <!-- 公司简介 -->
+  <view class="company-info">
+    <view class="section-header">
+      <view class="section-title">关于雷叔智能</view>
+      <view class="section-more" hover-class="section-more-hover" bindtap="navigateToAbout">查看更多</view>
     </view>
-    <view class="entry-item" bindtap="navigateToCategory" data-type="new">
-      <view class="entry-icon entry-icon-new"></view>
-      <text class="entry-text">新课上架</text>
-    </view>
-    <view class="entry-item" bindtap="navigateToCategory" data-type="free">
-      <view class="entry-icon entry-icon-free"></view>
-      <text class="entry-text">免费好课</text>
-    </view>
-    <view class="entry-item" bindtap="navigateToCategory" data-type="rank">
-      <view class="entry-icon entry-icon-rank"></view>
-      <text class="entry-text">课程排行</text>
+    <view class="company-desc">
+      <image src="/images/company_logo.png" mode="aspectFit" class="company-logo"></image>
+      <view class="company-text">
+        <text>雷叔智能科技有限公司是一家专注于人工智能技术研发与应用的高新技术企业，致力于为政府、企业及个人提供智能化解决方案。我们拥有一支由AI领域专家组成的研发团队，聚焦于大模型应用、计算机视觉、自然语言处理等前沿领域，打造新一代智能产品与服务。</text>
+        <view class="company-highlights">
+          <view class="highlight-item">
+            <text class="highlight-number">5年+</text>
+            <text class="highlight-text">行业经验</text>
+          </view>
+          <view class="highlight-item">
+            <text class="highlight-number">100+</text>
+            <text class="highlight-text">合作伙伴</text>
+          </view>
+          <view class="highlight-item">
+            <text class="highlight-number">50+</text>
+            <text class="highlight-text">技术专利</text>
+          </view>
+        </view>
+      </view>
     </view>
   </view>
   
-  <!-- 热门课程 -->
+  <!-- 核心优势 -->
   <view class="section">
     <view class="section-header">
-      <view class="section-title">热门课程</view>
-      <view class="section-more" hover-class="section-more-hover" bindtap="navigateToCategory">查看更多</view>
+      <view class="section-title">核心优势</view>
     </view>
-    <view class="course-grid">
-      <view wx:for="{{popularCourses}}" wx:key="id" class="course-card" hover-class="course-card-hover" bindtap="navigateToCourse" data-id="{{item.id}}">
-        <image src="{{item.coverImage}}" mode="aspectFill" class="course-image"></image>
-        <view class="hot-tag" wx:if="{{item.studentCount > 5000}}">热门</view>
-        <view class="course-info">
-          <view class="course-title">{{item.title}}</view>
-          <view class="course-meta">
-            <text class="course-instructor">{{item.instructor}}</text>
-            <view class="course-rating">
-              <text class="iconfont icon-star"></text>
-              <text>{{item.rating}}</text>
-            </view>
-          </view>
-          <view class="course-price-row">
-            <view class="price-box">
-              <text class="course-price">¥{{item.price}}</text>
-              <text class="course-original-price" wx:if="{{!item.isFree}}">¥{{item.originalPrice}}</text>
-              <text class="course-free-tag" wx:if="{{item.isFree}}">免费</text>
-            </view>
-            <view class="cart-btn" hover-class="cart-btn-hover" catchtap="addToCart" data-id="{{item.id}}">
-              <icon type="cart" size="20"></icon>
-            </view>
-          </view>
+    <view class="advantage-list">
+      <view class="advantage-item" wx:for="{{advantages}}" wx:key="id">
+        <image src="{{item.icon}}" mode="aspectFit" class="advantage-icon"></image>
+        <view class="advantage-info">
+          <view class="advantage-title">{{item.title}}</view>
+          <view class="advantage-desc">{{item.description}}</view>
         </view>
       </view>
     </view>
   </view>
   
-  <!-- 免费好课 -->
+  <!-- 服务项目 -->
   <view class="section">
     <view class="section-header">
-      <view class="section-title">免费好课</view>
-      <view class="section-more" hover-class="section-more-hover" bindtap="navigateToCategory">查看更多</view>
+      <view class="section-title">服务项目</view>
+      <view class="section-more" hover-class="section-more-hover" bindtap="navigateToServices">查看更多</view>
     </view>
-    <view class="course-grid">
-      <view wx:for="{{freeCourses}}" wx:key="id" class="course-card" hover-class="course-card-hover" bindtap="navigateToCourse" data-id="{{item.id}}">
-        <image src="{{item.coverImage}}" mode="aspectFill" class="course-image"></image>
-        <view class="free-tag">免费</view>
-        <view class="course-info">
-          <view class="course-title">{{item.title}}</view>
-          <view class="course-meta">
-            <text class="course-instructor">{{item.instructor}}</text>
-            <view class="course-rating">
-              <text class="iconfont icon-star"></text>
-              <text>{{item.rating}}</text>
-            </view>
-          </view>
-          <view class="course-price-row">
-            <text class="course-free-tag">免费</text>
-            <view class="student-count">
-              <text class="iconfont icon-user"></text>
-              <text>{{item.studentCount}}人学习</text>
-            </view>
+    <view class="service-grid">
+      <view wx:for="{{services}}" wx:key="id" class="service-card" hover-class="service-card-hover" bindtap="navigateToServiceDetail" data-id="{{item.id}}">
+        <image src="{{item.image}}" mode="aspectFill" class="service-image"></image>
+        <view class="service-info">
+          <view class="service-title">{{item.title}}</view>
+          <view class="service-desc">{{item.brief}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 成功案例 -->
+  <view class="section">
+    <view class="section-header">
+      <view class="section-title">成功案例</view>
+      <view class="section-more" hover-class="section-more-hover" bindtap="navigateToCases">查看更多</view>
+    </view>
+    <view class="case-list">
+      <view wx:for="{{cases}}" wx:key="id" class="case-item" hover-class="case-item-hover" bindtap="navigateToCaseDetail" data-id="{{item.id}}">
+        <image src="{{item.coverImage}}" mode="aspectFill" class="case-image" lazy-load="{{true}}"></image>
+        <view class="case-info">
+          <view class="case-title">{{item.title}}</view>
+          <view class="case-client">客户：{{item.client}}</view>
+          <view class="case-tags">
+            <view class="case-tag" wx:for="{{item.tags}}" wx:for-item="tag" wx:key="*this">{{tag}}</view>
           </view>
         </view>
       </view>
     </view>
   </view>
   
-  <!-- 分类导航 -->
-  <view class="category-nav">
-    <scroll-view scroll-x="{{true}}" class="category-scroll" enhanced="{{true}}" show-scrollbar="{{false}}" scroll-with-animation="{{true}}">
-      <view class="category-item {{currentCategory === 0 ? 'active' : ''}}" hover-class="category-item-hover" bindtap="switchCategory" data-id="0">
-        <text>推荐</text>
-      </view>
-      <view wx:for="{{categories}}" wx:key="id" class="category-item {{currentCategory === item.id ? 'active' : ''}}" hover-class="category-item-hover" bindtap="switchCategory" data-id="{{item.id}}">
-        <text>{{item.name}}</text>
-      </view>
-    </scroll-view>
-  </view>
-  
-  <!-- 课程列表 -->
-  <view class="course-list">
-    <view wx:for="{{courseList}}" wx:key="id" class="course-item" hover-class="course-item-hover" bindtap="navigateToCourse" data-id="{{item.id}}">
-      <image src="{{item.coverImage}}" mode="aspectFill" class="course-item-image" lazy-load="{{true}}"></image>
-      <view class="free-tag" wx:if="{{item.isFree}}">免费</view>
-      <view class="course-item-info">
-        <view class="course-item-title">{{item.title}}</view>
-        <view class="course-item-summary">{{item.summary}}</view>
-        <view class="course-item-meta">
-          <view class="meta-item instructor">
-            <text class="iconfont icon-teacher"></text>
-            <text>{{item.instructor}}</text>
-          </view>
-          <view class="meta-item rating">
-            <text class="iconfont icon-star"></text>
-            <text>{{item.rating}}分</text>
-          </view>
-          <view class="meta-item students">
-            <text class="iconfont icon-user"></text>
-            <text>{{item.studentCount}}人</text>
-          </view>
-        </view>
-        <view class="course-item-price-row">
-          <view class="price-box">
-            <block wx:if="{{item.isFree}}">
-              <text class="course-item-free">免费</text>
-            </block>
-            <block wx:else>
-              <text class="course-item-price">¥{{item.price}}</text>
-              <text class="course-item-original">¥{{item.originalPrice}}</text>
-            </block>
-          </view>
-          <view class="course-item-cart" hover-class="cart-btn-hover" catchtap="addToCart" data-id="{{item.id}}">
-            <icon type="cart" size="18"></icon>
-          </view>
-        </view>
-      </view>
+  <!-- 合作伙伴 -->
+  <view class="section">
+    <view class="section-header">
+      <view class="section-title">合作伙伴</view>
+    </view>
+    <view class="partner-grid">
+      <image wx:for="{{partners}}" wx:key="id" src="{{item.logo}}" mode="aspectFit" class="partner-logo"></image>
     </view>
   </view>
   
-  <!-- 加载更多 -->
-  <view class="loading" wx:if="{{loading}}">
-    <image src="/images/loading.gif" mode="aspectFit" class="loading-image"></image>
-    <text>加载中...</text>
+  <!-- 联系我们 -->
+  <view class="contact-section">
+    <view class="section-header">
+      <view class="section-title">联系我们</view>
+    </view>
+    <view class="contact-info">
+      <view class="contact-item">
+        <text class="iconfont icon-phone"></text>
+        <text>400-123-4567</text>
+      </view>
+      <view class="contact-item">
+        <text class="iconfont icon-email"></text>
+        <text>contact@leishu.ai</text>
+      </view>
+      <view class="contact-item">
+        <text class="iconfont icon-address"></text>
+        <text>北京市海淀区科技园区88号雷叔智能大厦</text>
+      </view>
+    </view>
+    <view class="contact-map">
+      <map latitude="39.9" longitude="116.4" scale="12" markers="{{markers}}" style="width: 100%; height: 200px;"></map>
+    </view>
   </view>
   
-  <!-- 加载完成 -->
-  <view class="no-more" wx:if="{{noMore}}">
-    <text>已经到底了~</text>
+  <!-- 底部版权 -->
+  <view class="footer">
+    <text class="copyright">© 2024 雷叔智能科技有限公司 版权所有</text>
   </view>
 </view>

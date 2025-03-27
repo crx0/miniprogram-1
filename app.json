@@ -1,11 +1,12 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/category/category",
+    "pages/services/services",
+    "pages/cases/cases",
+    "pages/contact/contact",
+    "pages/about/about",
     "pages/article/article",
-    "pages/user/user",
-    "pages/search/search",
-    "pages/favorite/favorite"
+    "pages/search/search"
   ],
   "window": {
     "navigationBarTitleText": "雷叔智能",
@@ -26,14 +27,20 @@
         "selectedIconPath": "images/home_selected.png"
       },
       {
-        "pagePath": "pages/category/category",
-        "text": "课程",
+        "pagePath": "pages/services/services",
+        "text": "服务",
         "iconPath": "images/category.png",
         "selectedIconPath": "images/category_selected.png"
       },
       {
-        "pagePath": "pages/user/user",
-        "text": "我的",
+        "pagePath": "pages/cases/cases",
+        "text": "案例",
+        "iconPath": "images/case.png",
+        "selectedIconPath": "images/case_selected.png"
+      },
+      {
+        "pagePath": "pages/contact/contact",
+        "text": "联系",
         "iconPath": "images/user.png",
         "selectedIconPath": "images/user_selected.png"
       }

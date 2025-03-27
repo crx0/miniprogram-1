@@ -1,6 +1,6 @@
 <view class="container">
-  <!-- 分类列表 -->
-  <view class="category-list">
+  <!-- 分类列表（横向滚动） -->
+  <scroll-view class="category-list" scroll-x="true" enhanced="true" show-scrollbar="false">
     <view class="category-item {{currentCategory === category.id ? 'active' : ''}}" 
           wx:for="{{categories}}" 
           wx:for-item="category" 
@@ -8,15 +8,44 @@
           bindtap="selectCategory" 
           data-id="{{category.id}}"
           hover-class="category-item-hover">
-      <image class="category-icon" src="{{category.icon}}" mode="aspectFit"></image>
+      <image class="category-icon" src="{{category.icon}}" mode="aspectFit" lazy-load="true"></image>
       <text class="category-name">{{category.name}}</text>
       <view class="category-indicator" wx:if="{{currentCategory === category.id}}"></view>
     </view>
-  </view>
+  </scroll-view>
   
   <!-- 分类内容 -->
-  <view class="category-content">
-    <block wx:if="{{currentCategory !== null && courseList.length > 0}}">
+  <scroll-view 
+    class="category-content"
+    scroll-y="true"
+    enable-back-to-top="true"
+    refresher-enabled="true"
+    refresher-threshold="80"
+    refresher-triggered="{{refreshing}}"
+    bindrefresherrefresh="onRefresh"
+    bindscrolltolower="onLoadMore">
+    
+    <!-- 下拉刷新自定义样式 -->
+    <view slot="refresher" class="refresh-container">
+      <view class="refresh-spinner"></view>
+    </view>
+    
+    <block wx:if="{{isLoading && !refreshing && courseList.length === 0}}">
+      <!-- 骨架屏 -->
+      <view class="section-title">加载中...</view>
+      <view class="course-list">
+        <view class="skeleton-course" wx:for="{{3}}" wx:key="index">
+          <view class="skeleton skeleton-image"></view>
+          <view class="skeleton skeleton-title"></view>
+          <view class="skeleton skeleton-summary"></view>
+          <view class="skeleton skeleton-summary" style="width: 70%"></view>
+          <view class="skeleton skeleton-meta"></view>
+          <view class="skeleton skeleton-price"></view>
+        </view>
+      </view>
+    </block>
+
+    <block wx:elif="{{currentCategory !== null && courseList.length > 0}}">
       <view class="section-title">{{categories[currentCategoryIndex].name}} 课程</view>
       <view class="course-list">
         <view class="course-item fade-in" 
@@ -64,7 +93,7 @@
       </view>
     </block>
 
-    <block wx:elif="{{currentCategory !== null && courseList.length === 0}}">
+    <block wx:elif="{{currentCategory !== null && courseList.length === 0 && !isLoading}}">
       <view class="empty-tip">
         <text>暂无相关课程</text>
         <view class="empty-action" bindtap="refreshCourses" hover-class="button-hover">刷新试试</view>
@@ -77,5 +106,16 @@
         <view class="tip-arrow"></view>
       </view>
     </block>
-  </view>
+    
+    <!-- 加载更多 -->
+    <view class="loading" wx:if="{{loading && courseList.length > 0}}">
+      <view class="loading-spinner"></view>
+      <text class="loading-text">加载中...</text>
+    </view>
+
+    <!-- 加载完成 -->
+    <view class="no-more" wx:if="{{noMore && courseList.length > 0}}">
+      <text>已经到底了~</text>
+    </view>
+  </scroll-view>
 </view> 

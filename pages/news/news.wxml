@@ -1,0 +1,76 @@
+<view class="container">
+  <!-- 页面标题 -->
+  <view class="page-header">
+    <view class="title">公司动态</view>
+    <view class="subtitle">了解雷叔智能最新资讯与技术前沿</view>
+  </view>
+
+  <!-- 分类导航 -->
+  <scroll-view class="category-nav" scroll-x enable-flex>
+    <view 
+      class="category-item {{currentCategory === item ? 'active' : ''}}" 
+      wx:for="{{categories}}" 
+      wx:key="*this"
+      bindtap="switchCategory"
+      data-category="{{item}}">
+      {{item}}
+    </view>
+  </scroll-view>
+
+  <!-- 动态列表 -->
+  <view class="news-list">
+    <view class="news-item {{item.isTop ? 'top-news' : ''}}" 
+          wx:for="{{filteredNewsList}}" 
+          wx:key="id"
+          bindtap="goToNewsDetail"
+          data-id="{{item.id}}">
+      <!-- 置顶标签 -->
+      <view class="top-tag" wx:if="{{item.isTop}}">置顶</view>
+      
+      <!-- 动态封面 -->
+      <image class="news-cover" src="{{item.cover}}" mode="aspectFill"></image>
+      
+      <!-- 动态内容 -->
+      <view class="news-content">
+        <view class="news-title">{{item.title}}</view>
+        
+        <view class="news-meta">
+          <view class="news-category">{{item.category}}</view>
+          <view class="news-date">{{item.date}}</view>
+        </view>
+        
+        <view class="news-summary">{{item.summary}}</view>
+        
+        <view class="news-stats">
+          <view class="news-views">
+            <text class="iconfont icon-view"></text>
+            <text>{{item.views}}</text>
+          </view>
+          <view class="news-likes" catchtap="likeNews" data-id="{{item.id}}">
+            <text class="iconfont icon-like"></text>
+            <text>{{item.likes}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 加载更多 -->
+  <view class="load-more" wx:if="{{filteredNewsList.length > 0}}">
+    <view wx:if="{{hasMore}}" bindtap="loadMore" class="load-more-btn">加载更多</view>
+    <view wx:else class="no-more">已显示全部内容</view>
+  </view>
+
+  <!-- 空状态 -->
+  <view class="empty-state" wx:if="{{filteredNewsList.length === 0}}">
+    <image class="empty-image" src="/images/empty.png" mode="aspectFit"></image>
+    <view class="empty-text">暂无相关动态</view>
+  </view>
+
+  <!-- 订阅提示 -->
+  <view class="subscribe-section">
+    <view class="subscribe-title">订阅雷叔智能资讯</view>
+    <view class="subscribe-desc">及时获取公司最新动态和行业前沿信息</view>
+    <button class="subscribe-btn" open-type="contact">立即订阅</button>
+  </view>
+</view> 

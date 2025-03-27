@@ -46,10 +46,20 @@
   }
 }
 
+/* 全局响应式调整 */
+page {
+  --safe-area-inset-top: env(safe-area-inset-top);
+  --safe-area-inset-bottom: env(safe-area-inset-bottom);
+  font-size: calc(14px + 0.1vmin);
+  box-sizing: border-box;
+}
+
 /* 容器 */
 .container {
-  padding: 0 0 40rpx 0;
+  padding: 0 0 calc(40rpx + var(--safe-area-inset-bottom));
   background-color: #F5F7FA;
+  min-height: 100vh;
+  box-sizing: border-box;
 }
 
 /* 用户信息 */
@@ -57,7 +67,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 50rpx 30rpx;
+  padding: calc(50rpx + var(--safe-area-inset-top)) calc(30rpx + 1vmin);
   background: linear-gradient(135deg, #3D5AFE, #651FFF);
   color: white;
   box-shadow: 0 6rpx 20rpx rgba(61, 90, 254, 0.2);
@@ -90,11 +100,11 @@
 }
 
 .user-avatar {
-  width: 140rpx;
-  height: 140rpx;
+  width: calc(140rpx + 1vmin);
+  height: calc(140rpx + 1vmin);
   border-radius: 50%;
   border: 6rpx solid rgba(255, 255, 255, 0.3);
-  margin-right: 30rpx;
+  margin-right: calc(30rpx + 0.5vmin);
   box-shadow: 0 6rpx 20rpx rgba(0, 0, 0, 0.2);
   position: relative;
   z-index: 2;
@@ -102,7 +112,7 @@
 }
 
 .user-name {
-  font-size: 42rpx;
+  font-size: calc(40rpx + 0.3vmin);
   font-weight: 600;
   position: relative;
   z-index: 2;
@@ -113,8 +123,8 @@
   background-color: rgba(255, 255, 255, 0.2);
   border: 2rpx solid rgba(255, 255, 255, 0.6);
   color: #ffffff;
-  font-size: 30rpx;
-  padding: 10rpx 40rpx;
+  font-size: calc(28rpx + 0.2vmin);
+  padding: calc(10rpx + 0.2vmin) calc(40rpx + 0.5vmin);
   border-radius: 40rpx;
   margin: 0;
   line-height: 1.5;
@@ -134,8 +144,8 @@
 .study-stats {
   display: flex;
   background-color: #ffffff;
-  padding: 30rpx 0;
-  margin-bottom: 24rpx;
+  padding: calc(30rpx + 1vmin) 0;
+  margin-bottom: calc(24rpx + 1vmin);
   border-radius: 0 0 20rpx 20rpx;
   box-shadow: 0 8rpx 20rpx rgba(0, 0, 0, 0.06);
 }
@@ -149,7 +159,7 @@
 }
 
 .stat-number {
-  font-size: 48rpx;
+  font-size: calc(46rpx + 0.5vmin);
   font-weight: 600;
   color: #333333;
   margin-bottom: 10rpx;
@@ -159,7 +169,7 @@
 }
 
 .stat-label {
-  font-size: 24rpx;
+  font-size: calc(24rpx + 0.1vmin);
   color: #8E8E93;
 }
 
@@ -173,16 +183,16 @@
 /* 菜单卡片 */
 .menu-card {
   background-color: #ffffff;
-  margin: 0 24rpx 24rpx;
+  margin: 0 calc(24rpx + 0.5vmin) calc(24rpx + 1vmin);
   border-radius: 20rpx;
   overflow: hidden;
   box-shadow: 0 8rpx 20rpx rgba(0, 0, 0, 0.06);
 }
 
 .menu-title {
-  font-size: 32rpx;
+  font-size: calc(32rpx + 0.2vmin);
   font-weight: 600;
-  padding: 30rpx;
+  padding: calc(30rpx + 0.5vmin);
   border-bottom: 2rpx solid #F5F7FA;
   position: relative;
   padding-left: 60rpx;
@@ -205,7 +215,7 @@
 .menu-grid {
   display: flex;
   flex-wrap: wrap;
-  padding: 20rpx 0;
+  padding: calc(20rpx + 0.5vmin) 0;
 }
 
 .grid-item {
@@ -213,9 +223,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 30rpx 0;
+  padding: calc(30rpx + 0.5vmin) 0;
   position: relative;
-  transition: all 0.3s;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .grid-item-hover {
@@ -224,15 +234,15 @@
 }
 
 .grid-icon {
-  width: 80rpx;
-  height: 80rpx;
+  width: calc(80rpx + 0.5vmin);
+  height: calc(80rpx + 0.5vmin);
   margin-bottom: 16rpx;
   position: relative;
   transition: all 0.3s;
 }
 
 .grid-label {
-  font-size: 26rpx;
+  font-size: calc(26rpx + 0.1vmin);
   color: #333333;
 }
 
@@ -248,62 +258,171 @@
   height: 36rpx;
   line-height: 36rpx;
   text-align: center;
-  padding: 0 8rpx;
-  box-shadow: 0 4rpx 8rpx rgba(255, 59, 48, 0.3);
-  font-weight: 500;
-  z-index: 3;
+  box-shadow: 0 2rpx 6rpx rgba(255, 59, 48, 0.3);
 }
 
-/* 菜单列表 */
+/* 列表菜单 */
 .menu-list {
-  background-color: #ffffff;
+  padding: 0 calc(20rpx + 0.5vmin);
 }
 
 .menu-item {
   display: flex;
-  flex-direction: row;
   align-items: center;
-  padding: 30rpx;
-  border-bottom: 2rpx solid #F5F7FA;
+  justify-content: space-between;
+  padding: calc(26rpx + 0.5vmin) calc(10rpx + 0.5vmin);
+  border-bottom: 1rpx solid #F5F7FA;
   transition: all 0.3s;
-}
-
-.menu-item-hover {
-  background-color: #F5F7FA;
 }
 
 .menu-item:last-child {
   border-bottom: none;
 }
 
-.menu-icon {
-  width: 48rpx;
-  height: 48rpx;
-  margin-right: 30rpx;
+.menu-icon-box {
+  width: calc(56rpx + 0.5vmin);
+  height: calc(56rpx + 0.5vmin);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: calc(24rpx + 0.5vmin);
 }
 
-.menu-text {
-  flex: 1;
-  font-size: 30rpx;
+.menu-item-left {
+  display: flex;
+  align-items: center;
+}
+
+.menu-item-icon {
+  width: calc(36rpx + 0.5vmin);
+  height: calc(36rpx + 0.5vmin);
+}
+
+.menu-item-text {
+  font-size: calc(28rpx + 0.2vmin);
   color: #333333;
 }
 
-.arrow-icon {
-  width: 36rpx;
-  height: 36rpx;
-  opacity: 0.3;
-  transition: all 0.3s;
+.menu-item-right {
+  display: flex;
+  align-items: center;
 }
 
-.menu-item-hover .arrow-icon {
-  transform: translateX(4rpx);
-  opacity: 0.5;
+.menu-item-value {
+  font-size: calc(26rpx + 0.1vmin);
+  color: #8E8E93;
+  margin-right: 12rpx;
+}
+
+.arrow {
+  width: 16rpx;
+  height: 16rpx;
+  border-top: 2rpx solid #C8C8CC;
+  border-right: 2rpx solid #C8C8CC;
+  transform: rotate(45deg);
 }
 
 /* 版本信息 */
 .version-info {
   text-align: center;
-  padding: 40rpx;
+  padding: calc(30rpx + 1vmin) 0;
   color: #8E8E93;
-  font-size: 24rpx;
+  font-size: calc(22rpx + 0.1vmin);
+}
+
+/* 退出登录按钮 */
+.logout-btn {
+  width: calc(60% + 5vmin);
+  height: calc(90rpx + 1vmin);
+  line-height: calc(90rpx + 1vmin);
+  background: linear-gradient(135deg, #FF3B30, #FF9500);
+  color: #ffffff;
+  border-radius: 45rpx;
+  text-align: center;
+  margin: calc(40rpx + 1vmin) auto;
+  font-size: calc(30rpx + 0.2vmin);
+  font-weight: 500;
+  box-shadow: 0 8rpx 16rpx rgba(255, 59, 48, 0.2);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.logout-btn-hover {
+  transform: scale(0.98);
+  box-shadow: 0 4rpx 8rpx rgba(255, 59, 48, 0.15);
+}
+
+/* 小屏适配 */
+@media screen and (max-width: 375px) {
+  .user-avatar {
+    width: 120rpx;
+    height: 120rpx;
+  }
+  
+  .user-name {
+    font-size: 38rpx;
+  }
+  
+  .stat-number {
+    font-size: 42rpx;
+  }
+  
+  .stat-label {
+    font-size: 22rpx;
+  }
+  
+  .grid-item {
+    padding: 24rpx 0;
+  }
+  
+  .grid-icon {
+    width: 70rpx;
+    height: 70rpx;
+  }
+  
+  .grid-label {
+    font-size: 24rpx;
+  }
+}
+
+/* 大屏适配 */
+@media screen and (min-width: 768px) {
+  .menu-card {
+    max-width: 700rpx;
+    margin: 0 auto 24rpx;
+  }
+  
+  .menu-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .grid-item {
+    width: 100%;
+  }
+  
+  .study-stats {
+    max-width: 700rpx;
+    margin: 0 auto 24rpx;
+  }
+  
+  .logout-btn {
+    max-width: 400rpx;
+  }
+}
+
+/* 可访问性增强 */
+@media (prefers-reduced-motion: reduce) {
+  .user-info,
+  .grid-item,
+  .menu-item,
+  .logout-btn {
+    transition: none !important;
+  }
+  
+  .fade-in {
+    animation: none !important;
+    opacity: 1;
+    transform: none;
+  }
 }
